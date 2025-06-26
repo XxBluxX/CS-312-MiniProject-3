@@ -1,0 +1,59 @@
+/*Give a blue hue to the background of the website and pad each side of the site*/
+body {
+    background-color: rgb(187, 193, 237);
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+/*make the div container a darker blue/purple and size it*/
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: rgb(136, 136, 236);
+    padding: 20px;
+}
+
+/*Format the text inputs size and font size*/
+form input, form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/*format the post button size and font size and spacing*/
+form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/*formats the posted messages border background color and sizing and spacing*/
+.post {
+    border: 3px solid black;
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/*formats the edit button color and spacing*/
+a {
+    color: black;
+    margin-left: 10px;
+}
+
+/*formats the delete button color and size*/
+button.delete {
+    background-color: white;
+    color: black;
+    padding: 6px 12px;
+}
+
+.sign {
+    background-color: white;
+}
