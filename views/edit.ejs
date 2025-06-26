@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Edit Post</h1>
+        <!--fills the form with previous information and when submitted sends post request to /edit/:id and updates the database-->
+        
+        <form action="/edit/<%=post.blog_id%>" method="post">
+            <label>Title: </label>
+            <br>
+            <input type="text" name="title" value="<%=post.title %>" required>
+            <br>
+            <label>Date: </label>
+            <br>
+            <input type="date" name="date" value="<%= post.date_created %>" required>
+            <br>
+            <label>Name: </label>
+            <br>
+            <input type="text" name="name" value="<%= post.creator_name %>" required>
+            <br>
+            <label>Message: </label>
+            <br>
+            <textarea name="message" required><%= post.body %></textarea>
+            <br>
+            <button type="submit">Save</button>
+            <a href="/">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
