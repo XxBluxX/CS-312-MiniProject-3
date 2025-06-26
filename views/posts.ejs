@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+
+<body>
+    <div class="blog-container">
+        <h1>Blog Posts</h1>
+
+        <!--a form to add new blog posts, sends a post req to /add and a query to enter the data into the database-->
+        <form action="/add" method="post">
+            <label>Date: </label>
+            <br>
+            <input type="date" name="date" required>
+            <br>
+            <label>Name:</label>
+            <br>
+            <input type="text" name="name" required>
+            <br>
+            <label>Title:</label>
+            <br>
+            <input type="text" name="title" required>
+            <br>
+            <label>Message:</label>
+            <br>
+            <textarea name="message" required></textarea>
+            <br>
+            <button type="submit">Post</button>
+        </form>
+
+
+        <div class="posts">
+            <!--displays post info-->
+            <% if (posts && posts.length > 0) { %>
+                <% for (let i=0; i<posts.length; i++) { %>
+                    <p>Title: <%= posts[i].title %></p>
+                    <p>Date: <%= posts[i].date_created %></p>
+                    <p>Name: <%= posts[i].creator_name %></p>
+                    <p>Message: <%= posts[i].body %></p>
+
+                    <!--sends the deleted post to /delete/:id-->
+                    <form action="/delete/<%=posts[i].blog_id%>" method="post">
+                        <button type="submit" class="delete">Delete</button>
+                    </form>
+
+                    <!--loads the /edit/:id page-->
+                    <a href="/edit/<%=posts[i].blog_id%>">Edit</a>
+                <% } %>
+            <% } else { %>
+                <p>No posts available.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
